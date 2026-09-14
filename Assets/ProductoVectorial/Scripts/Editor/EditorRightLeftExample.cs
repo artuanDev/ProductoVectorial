@@ -41,13 +41,19 @@ public class EditorRightLeftExample : Editor
 
             Handles.DrawLine(start, start + (endY * 4), 10.0f);
 
+            if(example.debugText == null)
+            {
+                Debug.LogError("Assign a text mesh pro to the player reference script component");
+                return;
+            }
+
             if(endY.y < 0)
             {
-                Debug.Log("Target is at the left");
+                example.debugText.text = "LEFT";
             }
             else
             {
-                Debug.Log("Target is at the right");
+                example.debugText.text = "RIGHT";
             }
         }
     }
